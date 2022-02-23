@@ -63,24 +63,6 @@ def verify(source_state, j):
     print("Not valid input")
 
 
-# def draw_graph():
-#     graph = nx.DiGraph()
-#     graph.add_edges_from([('S', 'A'), ('A', 'S'), ('A', 'B'), ('B', 'C'), ('C', 'A'), ('C', '$')])
-#     val_map = {'S': 1, '$': 2}
-#     values = [val_map.get(node, 3) for node in graph.nodes()]
-#     back_edge = [('A', 'S')]
-#     edge_colors = ['black' if not edge in back_edge else 'red' for edge in graph.edges()]
-#     pos = nx.spring_layout(graph)
-#     nx.draw_networkx_labels(graph, pos)
-#     nx.draw_networkx_edge_labels(graph, pos, edge_labels = dict([
-#         (('S', 'A'), 'a'), (('A', 'S'), 'b'), (('A', 'B'), 'a'),
-#         (('B', 'C'), 'b'), (('C', 'A'), 'a'), (('C', '$'), 'b')]))
-#     nx.draw_networkx_edges(graph, pos, arrows=True, connectionstyle="arc3, rad=0.3")
-#     nx.draw(graph, pos, node_color=values, node_size=1500, edge_color=edge_colors,
-#             edge_cmap=plt.cm.Reds, connectionstyle="arc3,rad=0.3")
-#     pylab.show()
-
-
 def draw_graph():
     graph = nx.DiGraph()
     graph.add_edges_from([('q0', 'q1'), ('q1', 'q0'), ('q1', 'q2'), ('q2', 'q3'), ('q3', 'q1'), ('q3', '$')])
@@ -90,13 +72,14 @@ def draw_graph():
     edge_colors = ['black' if not edge in back_edge else 'red' for edge in graph.edges()]
     pos = nx.spring_layout(graph)
     nx.draw_networkx_labels(graph, pos)
-    nx.draw_networkx_edge_labels(graph, pos, edge_labels = dict([
+    nx.draw_networkx_edge_labels(graph, pos, edge_labels=dict([
         (('q0', 'q1'), 'a'), (('q1', 'q0'), 'b'), (('q1', 'q2'), 'a'),
         (('q2', 'q3'), 'b'), (('q3', 'q1'), 'a'), (('q3', '$'), 'b')]))
-    nx.draw_networkx_edges(graph, pos, arrows=True, connectionstyle="arc3, rad=0.3")
+    nx.draw_networkx_edges(graph, pos, arrows=True, connectionstyle="arc3,rad=0.3")
     nx.draw(graph, pos, node_color=values, node_size=1500, edge_color=edge_colors,
             edge_cmap=plt.cm.Reds, connectionstyle="arc3,rad=0.3")
-    pylab.show()
+    plt.title(label='FA')
+    plt.show()
 
 
 draw_graph()
