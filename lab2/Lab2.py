@@ -1,6 +1,3 @@
-import networkx as nx
-import matplotlib.pyplot as plt
-
 lines = open("Variant19.txt", "r").read().split('\n')
 inputs = list(lines[0].split(","))
 states = list(lines[1].split(","))
